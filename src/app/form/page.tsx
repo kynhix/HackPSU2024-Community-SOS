@@ -26,7 +26,7 @@ export default function CreateEvent() {
     try {
       const currentDate = new Date().toISOString();
       const { data, error } = await supabase.from<Event>('events').insert([
-        { name, description, location, volunteers, created_at: currentDate }
+        { name, description, location, volunteers }
       ]);
       if (error) {
         throw error;
@@ -43,7 +43,7 @@ export default function CreateEvent() {
   return (
     <div>
       <Navbar></Navbar>
-      <div className="max-w-[600px] m-auto my-8 bg-gray-200 p-12 rounded-lg shadow">
+      <div className="max-w-[600px] m-auto my-8 bg-slate-200 p-12 rounded-lg border border-black/10 shadow-md">
         <h1 className="mb-14 font-bold text-center">Create Event</h1>
         <form className='flex flex-col gap-12' onSubmit={handleSubmit}>
           <label>Name</label>
