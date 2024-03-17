@@ -8,6 +8,7 @@ export async function GET(request: NextRequest) {
   const redirectTo = request.nextUrl.clone()
   redirectTo.pathname = 'dashboard';
   redirectTo.searchParams.delete('code')
+  console.log(redirectTo.toString());
 
   if (code) {
     const supabase = createClient();

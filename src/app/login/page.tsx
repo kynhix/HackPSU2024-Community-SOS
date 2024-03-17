@@ -1,5 +1,4 @@
 import LoginButton from '@/components/LoginButton'
-import { login, signup } from './actions'
 
 export default function LoginPage() {
   return <div className='flex w-screen h-screen justify-center items-center'>
