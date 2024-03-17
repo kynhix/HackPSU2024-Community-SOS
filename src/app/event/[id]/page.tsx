@@ -49,7 +49,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <>
           <div className="w-full p-8 mb-10 bg-slate-200 rounded-xl shadow-md">
             <h1 className="font-bold text-3xl mb-3">{event.name}</h1>
-            <h2 className="text-lg mb-4">Created {new Date(event.created_at).toLocaleString('en-us')}</h2>
+            <h2 className="text-lg mb-4 text-neutral-600">Created {new Date(event.created_at).toLocaleString('en-us')}</h2>
             <h2 className="text-lg mb-4">Located at {event.location}</h2>
             <h2 className="text-lg mb-10">Need <span className="font-bold">{event.volunteers}</span> volunteers.</h2>
             <p>{event.description}</p>
