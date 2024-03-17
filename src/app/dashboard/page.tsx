@@ -26,7 +26,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -41,10 +41,11 @@ export default function Dashboard() {
         </div>}
       {!loading && !error &&
         <div className="flex flex-col items-center self-stretch grow p-8">
-          <div className="flex flex-col rounded-lg overflow-hidden w-full max-w-[1440px]">
+          <div className="flex flex-col rounded-lg overflow-hidden w-full shadow-md max-w-[1440px]">
+            <div className="p-3 bg-slate-500 text-slate-50">Events</div>
             {events.map((e) =>
               // @ts-ignore
-              <EventTab name={e.name}></EventTab>
+              <EventTab key={e.id} name={e.name}></EventTab>
             )}
           </div>
         </div>}
