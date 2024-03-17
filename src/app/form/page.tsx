@@ -47,18 +47,18 @@ export default function CreateEvent() {
     <div>
       <Navbar></Navbar>
       <div className="max-w-[600px] m-auto my-8 bg-slate-200 p-12 rounded-lg border border-black/10 shadow-md">
-        <h1 className="mb-14 font-bold text-center">Create Event</h1>
+        <h1 className="mb-14 font-medium text-2xl text-center">Create Event</h1>
         {/*@ts-ignore*/}
-        <form className='flex flex-col gap-12' onSubmit={handleSubmit}>
+        <form className='flex flex-col gap-8' onSubmit={handleSubmit}>
           <label>Name</label>
           <input className="p-4 border rounded-lg" type="text" value={name} required minLength={4} maxLength={64} onChange={(e) => setName(e.target.value)} />
           <label>Description</label>
-          <input className="p-4 border rounded-lg" type="text" required minLength={24} maxLength={512} value={description} onChange={(e) => setDescription(e.target.value)} />
+          <textarea className="p-4 border rounded-lg" required rows={5} minLength={24} maxLength={512} value={description} onChange={(e) => setDescription(e.target.value)} />
           <label>Location</label>
           <input className="p-4 border rounded-lg" type="text" value={location} required onChange={(e) => setLocation(e.target.value)} />
           <label>Volunteers Needed</label>
           <input className="p-4 border rounded-lg" type="number" min={1} max={50} value={volunteers} onChange={(e) => setVolunteers(parseInt(e.target.value))} />
-          <input className="rounded-lg bg-white transition-colors hover:text-white hover:bg-blue-500 p-4 cursor-pointer" type="submit" value="Submit"></input>
+          <input className="rounded-lg text-white bg-blue-500 transition-colors hover:text-white hover:bg-blue-400 hover:shadow p-4 cursor-pointer" type="submit" value="Submit"></input>
         </form>
       </div>
     </div>
