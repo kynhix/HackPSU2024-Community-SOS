@@ -47,7 +47,7 @@ export default function Page({ params }: { params: { id: string } }) {
       {error || !event && <p>Event not found</p>}
       {!loading && !error && event &&
         <>
-          <div className="w-full p-8 bg-slate-200 rounded-xl">
+          <div className="w-full p-8 mb-10 bg-slate-200 rounded-xl shadow-md">
             <h1 className="font-bold text-3xl mb-3">{event.name}</h1>
             <h2 className="text-lg mb-4">Created {new Date(event.created_at).toLocaleString('en-us')}</h2>
             <h2 className="text-lg mb-4">Located at {event.location}</h2>
@@ -60,6 +60,7 @@ export default function Page({ params }: { params: { id: string } }) {
             height="450"
             loading="lazy"
             src={`https://www.google.com/maps?q=${event.location}&output=embed`}
+            className="rounded-xl"
           ></iframe>
         </>}
     </div>

@@ -51,14 +51,14 @@ export default function CreateEvent() {
         {/*@ts-ignore*/}
         <form className='flex flex-col gap-12' onSubmit={handleSubmit}>
           <label>Name</label>
-          <input className="p-4 border rounded-lg" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          <input className="p-4 border rounded-lg" type="text" value={name} required minLength={4} maxLength={64} onChange={(e) => setName(e.target.value)} />
           <label>Description</label>
-          <input className="p-4 border rounded-lg" type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+          <input className="p-4 border rounded-lg" type="text" required minLength={24} maxLength={512} value={description} onChange={(e) => setDescription(e.target.value)} />
           <label>Location</label>
-          <input className="p-4 border rounded-lg" type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
+          <input className="p-4 border rounded-lg" type="text" value={location} required onChange={(e) => setLocation(e.target.value)} />
           <label>Volunteers Needed</label>
           <input className="p-4 border rounded-lg" type="number" min={1} max={50} value={volunteers} onChange={(e) => setVolunteers(parseInt(e.target.value))} />
-          <button className="rounded-lg bg-white transition-colors hover:text-white hover:bg-blue-500 p-4" type="submit">Submit</button>
+          <input className="rounded-lg bg-white transition-colors hover:text-white hover:bg-blue-500 p-4 cursor-pointer" type="submit" value="Submit"></input>
         </form>
       </div>
     </div>
