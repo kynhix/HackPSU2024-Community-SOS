@@ -6,6 +6,7 @@ export default function LoginButton() {
   const supabase = createClient();
 
   const handleLogin = async () => {
+    console.log(location.origin);
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
