@@ -1,9 +1,9 @@
 "use client";
-
 import EventTab from "@/components/EventTab";
 import Navbar from "@/components/Navbar";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 
 export default function Dashboard() {
   const [loading, setLoading] = useState(true);
