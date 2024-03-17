@@ -29,7 +29,7 @@ export default function CreateEvent() {
       const currentDate = new Date().toISOString();
       // @ts-ignore
       const { data, error } = await supabase.from<Event>('events').insert([
-        { name, description, location, volunteers }
+        { name, description, location, volunteers, created_at: currentDate }
       ]);
       if (error) {
         throw error;
