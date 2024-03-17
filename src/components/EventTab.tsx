@@ -20,8 +20,8 @@ export default function EventTab(props: { name: string, id: number, created_at: 
 
   let eventDate = new Date(props.created_at);
 
-  return <Link href={`/event/${props.id}`}><div className="flex justify-between p-6 hover:py-9 truncate hover:bg-gray-200 duration-300 transition-all bg-gray-100">
-    <div>{props.name}</div>
-    <p className="text-neutral-500">{timeSince(eventDate)}</p>
+  return <Link href={`/event/${props.id}`}><div className="flex flex-col sm:flex-row justify-between p-6 hover:py-9 border-b truncate hover:bg-gray-200 duration-300 transition-all bg-gray-100">
+    <div className="shrink">{props.name}</div>
+    <p className="text-neutral-500 shrink-0">{timeSince(eventDate)}</p>
   </div></Link>;
 }
