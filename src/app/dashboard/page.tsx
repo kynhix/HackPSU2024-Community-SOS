@@ -1,7 +1,7 @@
 "use client";
 
 import EventTab from "@/components/EventTab";
-import SignOutButton from "@/components/SignOutButton";
+import Navbar from "@/components/Navbar";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
 
@@ -30,11 +30,7 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="flex w-full p-4 items-center bg-slate-200">
-        <h1>Dashboard</h1>
-        <div className="grow self-stretch"></div>
-        <SignOutButton className="self-baseline"></SignOutButton>
-      </div>
+      <Navbar></Navbar>
       {loading &&
         <div className="flex flex-col self-stretch grow p-8">
           <p>Loading...</p>
