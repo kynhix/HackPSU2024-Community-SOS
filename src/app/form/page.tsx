@@ -1,8 +1,8 @@
 "use client";
 
+import Navbar from "@/components/Navbar";
 import { createClient } from "@/utils/supabase/client";
 import { useState } from "react";
-import styled from 'styled-components';
 
 // Assuming the event object shape
 interface Event {
@@ -13,48 +13,6 @@ interface Event {
   location: string;
   volunteers: number;
 }
-
-const FormContainer = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`;
-
-const FormLabel = styled.label`
-  font-size: 1rem;
-  color: #333333;
-`;
-
-const FormInput = styled.input`
-  padding: 12px;
-  border: 1px solid #cccccc;
-  border-radius: 8px;
-  font-size: 1rem;
-`;
-
-const FormButton = styled.button`
-  padding: 12px;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
 
 export default function CreateEvent() {
   const [name, setName] = useState("");
@@ -83,19 +41,22 @@ export default function CreateEvent() {
   };
 
   return (
-    <FormContainer>
-      <h1 style={{ textAlign: 'center', marginBottom: '30px', color: '#007bff' }}>Create Event</h1>
-      <Form onSubmit={handleSubmit}>
-        <FormLabel>Name:</FormLabel>
-        <FormInput type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        <FormLabel>Description:</FormLabel>
-        <FormInput type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
-        <FormLabel>Location:</FormLabel>
-        <FormInput type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
-        <FormLabel>Volunteers Needed:</FormLabel>
-        <FormInput type="number" value={volunteers} onChange={(e) => setVolunteers(parseInt(e.target.value))} />
-        <FormButton type="submit">Submit</FormButton>
-      </Form>
-    </FormContainer>
+    <div>
+      <Navbar></Navbar>
+      <div className="max-w-[600px] m-auto my-8 bg-gray-200 p-12 rounded-lg shadow">
+        <h1 className="mb-14 font-bold text-center">Create Event</h1>
+        <form className='flex flex-col gap-12' onSubmit={handleSubmit}>
+          <label>Name</label>
+          <input className="p-4 border rounded-lg" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+          <label>Description</label>
+          <input className="p-4 border rounded-lg" type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+          <label>Location</label>
+          <input className="p-4 border rounded-lg" type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
+          <label>Volunteers Needed</label>
+          <input className="p-4 border rounded-lg" type="number" value={volunteers} onChange={(e) => setVolunteers(parseInt(e.target.value))} />
+          <button className="rounded-lg bg-white transition-colors hover:text-white hover:bg-blue-500 p-4" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
   );
 }
