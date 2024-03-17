@@ -44,7 +44,7 @@ export default function Dashboard() {
             </div>
             {events.map((e) =>
               // @ts-ignore
-              <EventTab key={e.id} name={e.name}></EventTab>
+              <EventTab key={e.id} name={e.name} created_at={e.created_at}></EventTab>
             )}
           </div>
         </div>}
