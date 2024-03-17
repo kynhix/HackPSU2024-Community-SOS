@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Link from 'next/link';
+import React from 'react';
 
 export default function Home() {
   return (
@@ -7,9 +8,9 @@ export default function Home() {
         <div className="w-[756px] text-center text-white text-[103px] font-bold font-['Lato'] leading-[88px]">Community SOS</div>
         <div className="self-stretch h-[142px] flex-col justify-start items-center gap-10 flex">
           <div className="self-stretch text-center text-white text-3xl font-normal font-['Lato']">See a need, lend a hand. Together, we make a difference!</div>
-          <a href="https://potwizokwnrhmqwprglu.supabase.co/auth/v1/authorize?provider=google" className="px-12 py-6 bg-white rounded-[36px] justify-start items-start gap-2.5 inline-flex">
+          <Link href="/login" className="px-12 py-6 bg-white rounded-[36px] justify-start items-start gap-2.5 inline-flex">
             <div className="text-neutral-800 text-2xl font-medium font-['Lato'] leading-[18px]">Offer Help</div>
-          </a>
+          </Link>
         </div>
       </div>
       </div>
