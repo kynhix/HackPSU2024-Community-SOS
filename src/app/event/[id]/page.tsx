@@ -18,11 +18,6 @@ export default function Page({ params }: { params: { id: string } }) {
   const [error, setError] = useState(false);
   const [event, setEvent] = useState<EventType | null>(null);
 
-  const id = parseInt(params.id);
-  if (!Number.isSafeInteger(id) || id < 0) {
-    return <p>Invalid Event ID</p>;
-  }
-
   const supabase = createClient();
   const fetchEvent = async () => {
     const { data, error } = await supabase.from("events").select().eq("id", id);
@@ -39,6 +34,10 @@ export default function Page({ params }: { params: { id: string } }) {
     fetchEvent();
   }, []);
 
+  const id = parseInt(params.id);
+  if (!Number.isSafeInteger(id) || id < 0) {
+    return <p>Invalid Event ID</p>;
+  }
   // displayMap("Penn State Business Building")
 
   return <div>
