@@ -1,5 +1,6 @@
 "use client";
 
+import EventTab from "@/components/EventTab";
 import SignOutButton from "@/components/SignOutButton";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
@@ -7,6 +8,7 @@ import { useEffect, useState } from "react";
 export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [events, setEvents] = useState([]);
 
   const supabase = createClient();
   const fetchData = async () => {
@@ -17,6 +19,9 @@ export default function Dashboard() {
       setError(true);
     }
     console.log('Data:', data);
+    // LOL
+    // @ts-ignore
+    setEvents(data);
   }
 
   useEffect(() => {
@@ -35,8 +40,13 @@ export default function Dashboard() {
           <p>Loading...</p>
         </div>}
       {!loading && !error &&
-        <div className="flex flex-col self-stretch grow p-8">
-          Dashboard content
+        <div className="flex flex-col items-center self-stretch grow p-8">
+          <div className="flex flex-col rounded-lg overflow-hidden w-full max-w-[1440px]">
+            {events.map((e) =>
+              // @ts-ignore
+              <EventTab name={e.name}></EventTab>
+            )}
+          </div>
         </div>}
     </div>
   );
