@@ -1,9 +1,9 @@
 "use client";
-
 import EventTab from "@/components/EventTab";
 import SignOutButton from "@/components/SignOutButton";
 import { createClient } from "@/utils/supabase/client";
 import { useEffect, useState } from "react";
+import Link from 'next/link';
 
 export default function Dashboard() {
   const [loading, setLoading] = useState(true);
@@ -34,6 +34,9 @@ export default function Dashboard() {
         <h1>Dashboard</h1>
         <div className="grow self-stretch"></div>
         <SignOutButton className="self-baseline"></SignOutButton>
+        <Link href="/form">
+          <button className="ml-4 text-blue-500">Create Event</button>
+        </Link>
       </div>
       {loading &&
         <div className="flex flex-col self-stretch grow p-8">
