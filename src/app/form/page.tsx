@@ -57,7 +57,7 @@ export default function CreateEvent() {
           <label>Location</label>
           <input className="p-4 border rounded-lg" type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
           <label>Volunteers Needed</label>
-          <input className="p-4 border rounded-lg" type="number" value={volunteers} onChange={(e) => setVolunteers(parseInt(e.target.value))} />
+          <input className="p-4 border rounded-lg" type="number" min={1} max={50} value={volunteers} onChange={(e) => setVolunteers(parseInt(e.target.value))} />
           <button className="rounded-lg bg-white transition-colors hover:text-white hover:bg-blue-500 p-4" type="submit">Submit</button>
         </form>
       </div>

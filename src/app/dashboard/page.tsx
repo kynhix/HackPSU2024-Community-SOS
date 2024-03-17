@@ -15,10 +15,10 @@ export default function Dashboard() {
     const { data, error } = await supabase.from('events').select();
     setLoading(false);
     if (error) {
-      console.error('Error fetching data:', error);
+      // console.error('Error fetching data:', error);
       setError(true);
     }
-    console.log('Data:', data);
+    // console.log('Data:', data);
     // LOL
     // @ts-ignore
     setEvents(data);
