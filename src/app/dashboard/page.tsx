@@ -31,6 +31,10 @@ export default function Dashboard() {
         <SignOutButton className="self-baseline"></SignOutButton>
       </div>
       {loading && <p>Loading...</p>}
+      {!loading && !error &&
+        <div className="flex flex-col p-8">
+          Dashboard content
+        </div>}
     </div>
   );
 }

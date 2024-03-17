@@ -12,5 +12,5 @@ export default function SignOutButton(props: { className?: string }) {
     router.push("/");
   }
 
-  return <button onClick={handleSignout} className={"text-lg text-neutral-900" + props.className}>Sign Out</button>;
+  return <button onClick={handleSignout} className={"text-neutral-900" + props.className}>Sign Out</button>;
 }
