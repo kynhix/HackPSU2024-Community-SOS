@@ -31,7 +31,6 @@ export default function Dashboard() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar></Navbar>
-      <Link href="/form" className="rounded-lg w-fit m-8 bg-white transition-colors hover:text-white hover:bg-blue-500 p-4" type="submit">Create Event</Link>
       {loading &&
         <div className="flex flex-col self-stretch grow p-8">
           <p>Loading...</p>
@@ -39,7 +38,10 @@ export default function Dashboard() {
       {!loading && !error &&
         <div className="flex flex-col items-center self-stretch grow p-8">
           <div className="flex flex-col rounded-lg overflow-hidden w-full shadow-md max-w-[1440px]">
-            <div className="p-6 font-bold bg-slate-500 text-slate-50">Events</div>
+            <div className="flex justify-between items-center bg-slate-500">
+              <div className="p-6 font-bold bg-slate-500 text-slate-50">Events</div>
+              <Link href="/form" className="mr-2 rounded-lg h-fit bg-white transition-colors hover:text-white hover:bg-blue-500 p-4" type="submit">Create Event</Link>
+            </div>
             {events.map((e) =>
               // @ts-ignore
               <EventTab key={e.id} name={e.name}></EventTab>
